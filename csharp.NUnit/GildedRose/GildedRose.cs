@@ -43,20 +43,20 @@ public class GildedRose
 
             if (I.SellIn < 0)
             {
-                if (!isAgedBrie)
+                switch (I.Name)
                 {
-                    if (!isBackStage)
-                    {
-                        if (I.Quality > 0 && !isSulfuras) I.Quality--;
-                    }
-                    else
-                    {
+                    case "Aged Brie":
+                        if (I.Quality < 50) I.Quality++;
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
                         I.Quality = 0;
-                    }
-                }
-                else
-                {
-                    if (I.Quality < 50) I.Quality++;
+                        break;
+                    case "Sulfuras, Hand of Ragnaros":
+
+                        break;
+                    default:
+                        if (I.Quality > 0) I.Quality--;
+                        break;
                 }
             }
         }
