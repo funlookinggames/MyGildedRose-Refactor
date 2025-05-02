@@ -13,74 +13,74 @@ public class GildedRose
 
     public void UpdateQuality()
     {
-        for (var i = 0; i < Items.Count; i++)
+        foreach (Item I in Items)
         {
-            if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (I.Name != "Aged Brie" && I.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (Items[i].Quality > 0)
+                if (I.Quality > 0)
                 {
-                    if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                    if (I.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        Items[i].Quality = Items[i].Quality - 1;
+                        I.Quality = I.Quality - 1;
                     }
                 }
             }
             else
             {
-                if (Items[i].Quality < 50)
+                if (I.Quality < 50)
                 {
-                    Items[i].Quality = Items[i].Quality + 1;
+                    I.Quality = I.Quality + 1;
 
-                    if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (I.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (Items[i].SellIn < 11)
+                        if (I.SellIn < 11)
                         {
-                            if (Items[i].Quality < 50)
+                            if (I.Quality < 50)
                             {
-                                Items[i].Quality = Items[i].Quality + 1;
+                                I.Quality = I.Quality + 1;
                             }
                         }
 
-                        if (Items[i].SellIn < 6)
+                        if (I.SellIn < 6)
                         {
-                            if (Items[i].Quality < 50)
+                            if (I.Quality < 50)
                             {
-                                Items[i].Quality = Items[i].Quality + 1;
+                                I.Quality = I.Quality + 1;
                             }
                         }
                     }
                 }
             }
 
-            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+            if (I.Name != "Sulfuras, Hand of Ragnaros")
             {
-                Items[i].SellIn = Items[i].SellIn - 1;
+                I.SellIn = I.SellIn - 1;
             }
 
-            if (Items[i].SellIn < 0)
+            if (I.SellIn < 0)
             {
-                if (Items[i].Name != "Aged Brie")
+                if (I.Name != "Aged Brie")
                 {
-                    if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (I.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (Items[i].Quality > 0)
+                        if (I.Quality > 0)
                         {
-                            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                            if (I.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                Items[i].Quality = Items[i].Quality - 1;
+                                I.Quality = I.Quality - 1;
                             }
                         }
                     }
                     else
                     {
-                        Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        I.Quality = I.Quality - I.Quality;
                     }
                 }
                 else
                 {
-                    if (Items[i].Quality < 50)
+                    if (I.Quality < 50)
                     {
-                        Items[i].Quality = Items[i].Quality + 1;
+                        I.Quality = I.Quality + 1;
                     }
                 }
             }
