@@ -21,7 +21,7 @@ public class GildedRose
                 {
                     if (I.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        I.Quality = I.Quality - 1;
+                        I.Quality--;
                     }
                 }
             }
@@ -29,7 +29,7 @@ public class GildedRose
             {
                 if (I.Quality < 50)
                 {
-                    I.Quality = I.Quality + 1;
+                    I.Quality++;
 
                     if (I.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
@@ -37,7 +37,7 @@ public class GildedRose
                         {
                             if (I.Quality < 50)
                             {
-                                I.Quality = I.Quality + 1;
+                                I.Quality++;
                             }
                         }
 
@@ -45,7 +45,7 @@ public class GildedRose
                         {
                             if (I.Quality < 50)
                             {
-                                I.Quality = I.Quality + 1;
+                                I.Quality++;
                             }
                         }
                     }
@@ -54,7 +54,7 @@ public class GildedRose
 
             if (I.Name != "Sulfuras, Hand of Ragnaros")
             {
-                I.SellIn = I.SellIn - 1;
+                I.SellIn--;
             }
 
             if (I.SellIn < 0)
@@ -67,20 +67,20 @@ public class GildedRose
                         {
                             if (I.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                I.Quality = I.Quality - 1;
+                                I.Quality--;
                             }
                         }
                     }
                     else
                     {
-                        I.Quality = I.Quality - I.Quality;
+                        I.Quality = 0;
                     }
                 }
                 else
                 {
                     if (I.Quality < 50)
                     {
-                        I.Quality = I.Quality + 1;
+                        I.Quality++;
                     }
                 }
             }
