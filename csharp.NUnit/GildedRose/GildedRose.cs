@@ -15,10 +15,14 @@ public class GildedRose
     {
         foreach (Item I in Items)
         {
+            bool isAgedBrie = I.Name == "Aged Brie";
+            bool isBackStage = I.Name == "Backstage passes to a TAFKAL80ETC concert";
+            bool isSulfuras = I.Name == "Sulfuras, Hand of Ragnaros";
 
-            if (I.Name != "Aged Brie" && I.Name != "Backstage passes to a TAFKAL80ETC concert")
+
+            if (!isAgedBrie && !isBackStage)
             {
-                if (I.Quality > 0 && I.Name != "Sulfuras, Hand of Ragnaros") I.Quality--;
+                if (I.Quality > 0 && !isSulfuras) I.Quality--;
             }
             else
             {
@@ -26,7 +30,7 @@ public class GildedRose
                 {
                     I.Quality++;
 
-                    if (I.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (isBackStage)
                     {
                         if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
 
@@ -35,15 +39,15 @@ public class GildedRose
                 }
             }
 
-            if (I.Name != "Sulfuras, Hand of Ragnaros") I.SellIn--;
+            if (!isSulfuras) I.SellIn--;
 
             if (I.SellIn < 0)
             {
-                if (I.Name != "Aged Brie")
+                if (!isAgedBrie)
                 {
-                    if (I.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (!isBackStage)
                     {
-                        if (I.Quality > 0 && I.Name != "Sulfuras, Hand of Ragnaros") I.Quality--;
+                        if (I.Quality > 0 && !isSulfuras) I.Quality--;
                     }
                     else
                     {
