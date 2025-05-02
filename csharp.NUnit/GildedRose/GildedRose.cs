@@ -48,12 +48,15 @@ public class GildedRose
                     case "Aged Brie":
                         if (I.Quality < 50) I.Quality++;
                         break;
+
                     case "Backstage passes to a TAFKAL80ETC concert":
                         I.Quality = 0;
                         break;
-                    case "Sulfuras, Hand of Ragnaros":
 
+                    case "Sulfuras, Hand of Ragnaros":
+                        // do nothing;
                         break;
+
                     default:
                         if (I.Quality > 0) I.Quality--;
                         break;
