@@ -15,15 +15,10 @@ public class GildedRose
     {
         foreach (Item I in Items)
         {
+
             if (I.Name != "Aged Brie" && I.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (I.Quality > 0)
-                {
-                    if (I.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        I.Quality--;
-                    }
-                }
+                if (I.Quality > 0 && I.Name != "Sulfuras, Hand of Ragnaros") I.Quality--;
             }
             else
             {
@@ -33,29 +28,14 @@ public class GildedRose
 
                     if (I.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (I.SellIn < 11)
-                        {
-                            if (I.Quality < 50)
-                            {
-                                I.Quality++;
-                            }
-                        }
+                        if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
 
-                        if (I.SellIn < 6)
-                        {
-                            if (I.Quality < 50)
-                            {
-                                I.Quality++;
-                            }
-                        }
+                        if (I.SellIn <= 5 && I.Quality < 50) I.Quality++;
                     }
                 }
             }
 
-            if (I.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                I.SellIn--;
-            }
+            if (I.Name != "Sulfuras, Hand of Ragnaros") I.SellIn--;
 
             if (I.SellIn < 0)
             {
@@ -63,13 +43,7 @@ public class GildedRose
                 {
                     if (I.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (I.Quality > 0)
-                        {
-                            if (I.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                I.Quality--;
-                            }
-                        }
+                        if (I.Quality > 0 && I.Name != "Sulfuras, Hand of Ragnaros") I.Quality--;
                     }
                     else
                     {
@@ -78,10 +52,7 @@ public class GildedRose
                 }
                 else
                 {
-                    if (I.Quality < 50)
-                    {
-                        I.Quality++;
-                    }
+                    if (I.Quality < 50) I.Quality++;
                 }
             }
         }
