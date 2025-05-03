@@ -73,9 +73,8 @@ public class GildedRose
                         break;
                 }
             }
-            else
+            else if (I.SellIn > 0)
             {
-                // meaning, if sellin > 0;
                 switch (I.Name)
                 {
                     case "Aged Brie":
@@ -99,7 +98,7 @@ public class GildedRose
                         {
                             I.Quality--;
 
-                            if (isConjured) I.Quality--;
+                            if (isConjured) I.Quality--; // this if can be rewritten using math.max(0, I.Quality - 2);
                         }
                         break;
                 }
