@@ -38,15 +38,16 @@ public class GildedRose
                     }
                 }
             }
+            // MAKE CONJURED ITEMS TAKE DOUBLE DAMAGE IN QUALITY LOL
 
-            if (!isSulfuras) I.SellIn--;
+            // if (!isSulfuras) I.SellIn--;
 
             if (I.SellIn < 0)
             {
                 switch (I.Name)
                 {
                     case "Aged Brie":
-                        if (I.Quality < 50) I.Quality++;
+                        I.Quality = 0;
                         break;
 
                     case "Backstage passes to a TAFKAL80ETC concert":
@@ -58,8 +59,9 @@ public class GildedRose
                         break;
 
                     default:
-                        if (I.Quality > 0) I.Quality--;
-                        break;
+                        if (I.Quality > 1) I.Quality-=2;
+                        else I.Quality = 0;
+                            break;
                 }
             }
         }
