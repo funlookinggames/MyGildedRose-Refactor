@@ -37,13 +37,13 @@ public class Program
                 Quality = 49,
                 Conjured = false
             },
-            // this conjured item does not work properly yet
+            
             new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, Conjured = true}
         };
 
         var app = new GildedRose(items);
 
-        int days = 2;
+        int days = 10;
         if (args.Length > 0)
         {
             days = int.Parse(args[0]) + 1;

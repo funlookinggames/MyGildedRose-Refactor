@@ -20,29 +20,41 @@ public class GildedRose
             bool isSulfuras = I.Name == "Sulfuras, Hand of Ragnaros";
             bool isConjured = I.Conjured == true;
 
-            /*if (!isAgedBrie && !isBackStage)
+            if (I.SellIn > 0)
             {
-                if (I.Quality > 0 && !isSulfuras && I.SellIn > 0) I.Quality--;
-            }
-            else
-            {
-                if (I.Quality < 50)
+                switch (I.Name)
                 {
-                    I.Quality++;
+                    case "Aged Brie":
+                        if (I.Quality > 0) I.Quality++;
 
-                    if (isBackStage)
-                    {
                         if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
 
                         if (I.SellIn <= 5 && I.Quality < 50) I.Quality++;
-                    }
-                }
-            }
-            // MAKE CONJURED ITEMS TAKE DOUBLE DAMAGE IN QUALITY LOL
 
-            if (isConjured && !isSulfuras && I.Quality > 0) { I.Quality--; }
-            */
-            // if (!isSulfuras) I.SellIn--;
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+
+                        if (I.Quality > 0) I.Quality++;
+
+                        if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
+
+                        if (I.SellIn <= 5 && I.Quality < 50) I.Quality++;
+
+                        break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        // Do nothing;
+                        break;
+                    default:
+                        if (I.Quality > 0)
+                        {
+                            I.Quality--;
+
+                            if (isConjured) I.Quality--; // this if can be rewritten using math.max(0, I.Quality - 2);
+                        }
+                        break;
+                }
+                if (!isSulfuras) I.SellIn--;
+            }
 
             if (I.SellIn < 0)
             {
@@ -72,38 +84,7 @@ public class GildedRose
                         }
                         break;
                 }
-            }
-            else if (I.SellIn > 0)
-            {
-                switch (I.Name)
-                {
-                    case "Aged Brie":
-                        if (I.Quality > 0) I.Quality++;
-
-                        break;
-                    case "Backstage passes to a TAFKAL80ETC concert":
-
-                        if (I.Quality > 0) I.Quality++;
-
-                        if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
-
-                        if (I.SellIn <= 5 && I.Quality < 50) I.Quality++;
-
-                        break;
-                    case "Sulfuras, Hand of Ragnaros":
-                        // Do nothing;
-                        break;
-                    default:
-                        if (I.Quality > 0)
-                        {
-                            I.Quality--;
-
-                            if (isConjured) I.Quality--; // this if can be rewritten using math.max(0, I.Quality - 2);
-                        }
-                        break;
-                }
-                if (!isSulfuras) I.SellIn--;
-            }
+            } 
         }
     }
 }
