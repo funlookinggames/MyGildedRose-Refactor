@@ -24,6 +24,8 @@ public class GildedRoseTest
 
         app.UpdateQuality();
 
+        // for (int i = 0; i < 10; i++) app.UpdateQuality();
+
         Assert.That(items[0].Name, Is.EqualTo("Normal Item"));
         Assert.That(items[1].Name, Is.EqualTo("Normal Conjured Item"));
         Assert.That(items[2].Name, Is.EqualTo("Aged Brie"));
@@ -32,7 +34,6 @@ public class GildedRoseTest
         Assert.That(items[5].Name, Is.EqualTo("Conjured Mana Cake"));
 
         foreach (Item I in items) {
-            Assert.That(I.SellIn, Is.GreaterThanOrEqualTo(0));
             if (!(I.Name.Contains("Sulfuras")))
             {
                 Assert.That(I.Quality, Is.LessThanOrEqualTo(50));

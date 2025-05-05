@@ -15,8 +15,8 @@ public class GildedRose
     {
         foreach (Item I in Items)
         {
-            bool isAgedBrie = I.Name == "Aged Brie";
-            bool isBackStage = I.Name == "Backstage passes to a TAFKAL80ETC concert";
+            // bool isAgedBrie = I.Name == "Aged Brie";
+            // bool isBackStage = I.Name == "Backstage passes to a TAFKAL80ETC concert";
             bool isSulfuras = I.Name == "Sulfuras, Hand of Ragnaros";
             bool isConjured = I.Conjured == true;
 
@@ -25,7 +25,7 @@ public class GildedRose
                 switch (I.Name)
                 {
                     case "Aged Brie":
-                        if (I.Quality > 0) I.Quality++;
+                        if (I.Quality < 50) I.Quality++;
 
                         if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
 
@@ -34,7 +34,7 @@ public class GildedRose
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
 
-                        if (I.Quality > 0) I.Quality++;
+                        if (I.Quality < 50) I.Quality++;
 
                         if (I.SellIn <= 10 && I.Quality < 50) I.Quality++;
 
@@ -53,8 +53,9 @@ public class GildedRose
                         }
                         break;
                 }
-                if (!isSulfuras) I.SellIn--;
             }
+            
+            if (!isSulfuras) I.SellIn--;
 
             if (I.SellIn < 0)
             {
@@ -62,6 +63,7 @@ public class GildedRose
                 {
                     case "Aged Brie":
                         I.Quality = 0;
+                        // I.Quality++;
                         break;
 
                     case "Backstage passes to a TAFKAL80ETC concert":
@@ -75,11 +77,11 @@ public class GildedRose
                     default:
                         if (isConjured)
                         {
-                            if (I.Quality > 1) I.Quality -= 2;
+                            if (I.Quality > 3) I.Quality -= 4;
 
                         } else
                         {
-                            if (I.Quality > 3) I.Quality -= 4;
+                            if (I.Quality > 1) I.Quality -= 2;
                             else I.Quality = 0;
                         }
                         break;
