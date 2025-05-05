@@ -39,7 +39,7 @@ public class GildedRoseTest
             } else
             {
                 Assert.That(I.SellIn, Is.EqualTo(0));
-                Assert.That(I.SellIn, Is.EqualTo(80));
+                Assert.That(I.Quality, Is.EqualTo(80));
             }
         }
         //var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0, Conjured = false } };
